@@ -1,0 +1,62 @@
+<odoo>
+  <report
+    id='academia.report_curso_alumno'
+    model='academia.curso'
+    string='Informe curso'
+    name='academia.report_curso_alumno_view'
+    file='academia.report_curso_alumno_view'
+    report_type='qweb-pdf'>
+  </report>
+  <template id='report_curso_alumno_view'>
+    <t t-call='report.html_container'>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+      <t t-foreach='docs' t-as='curso'>
+        <t t-call='report.external_layout'>
+          <div class='page'>
+            <table class="table table-bordered">
+              <thead class="table-info">
+                <tr>
+                  <th>Curso</th>
+                  <!-- <th>Profesor</th> -->
+                  <!-- <th>Direccion</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span t-field='curso.identificador' /></td>
+                  <!-- <td><span t-field='curso.profesor' /></td> -->
+                </tr>
+              </tbody>
+            </table>
+            <!-- Segunda tabla con los datos de los alumnos -->
+            <table class="table table-bordered">
+              <thead class="table-info">
+                <tr>
+                  <th class='text-center' colspan='3'>Alumnos</th>
+                </tr>
+                <tr>
+                  <th>DNI</th>
+                  <th>Nombre</th>
+                  <th>Primer apellido</th>
+                  <th>Segundo apellido</th>
+                  <th>Fecha de nacimiento</th>
+                </tr>
+              </thead>
+              <tbody>
+                <t t-foreach='curso.alumnos' t-as='alumno'>
+                  <tr>
+                    <td><span t-field='alumno.dni'/></td>
+                    <td><span t-field='alumno.nombre'/></td>
+                    <td><span t-field='alumno.primerApellido'/></td>
+                    <td><span t-field='alumno.segundoApellido'/></td>
+                    <td><span t-field='alumno.fechaNacimiento'/></td>
+                  </tr>
+                </t>
+              </tbody>
+            </table>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

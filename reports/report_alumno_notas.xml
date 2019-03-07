@@ -1,0 +1,49 @@
+<odoo>
+  <report
+    id='academia.report_alumno_notas'
+    model='academia.alumnoprofesor'
+    string='Informe alumno y sus notas'
+    name='academia.report_alumno_notas_view'
+    file='academia.report_alumno_notas_view'
+    report_type='qweb-pdf'>
+  </report>
+  <template id='report_alumno_notas_view'>
+    <t t-call='report.html_container'>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+      <t t-foreach='docs' t-as='alumno'>
+        <t t-call='report.external_layout'>
+          <div class='page'>
+            <table class="table table-bordered">
+              <thead class="table-info">
+                <tr>
+                  <th>DNI</th>
+                  <th>Nombre</th>
+                  <th>Primer apellido</th>
+                  <th>Segundo apellido</th>
+                  <th>Fecha de nacimiento</th>
+                  <th>Nota speaking</th>
+                  <th>Nota listening</th>
+                  <th>Nota writing</th>
+                  <th>Nota reading</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span t-field='alumno.dni'/></td>
+                  <td><span t-field='alumno.nombre'/></td>
+                  <td><span t-field='alumno.primerApellido'/></td>
+                  <td><span t-field='alumno.segundoApellido'/></td>
+                  <td><span t-field='alumno.fechaNacimiento'/></td>
+                  <td><span t-field='alumno.notaSpeaking'/></td>
+                  <td><span t-field='alumno.notaListening'/></td>
+                  <td><span t-field='alumno.notaWriting'/></td>
+                  <td><span t-field='alumno.notaReading'/></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

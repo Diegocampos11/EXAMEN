@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_academia_academia,academia.academia,model_academia_academia,,1,0,0,0
+administrativo_curso,administrativo curso,model_academia_curso,academia_administrativo,1,1,1,1
+administrativo_alumno,administrativo alumno,model_academia_alumnoprofesor,academia_administrativo,1,1,1,1
+profesor_curso,profesor curso,model_academia_curso,academia_profesor,1,0,0,0
+profesor_alumno,profesor alumno,model_academia_alumnoprofesor,academia_profesor,1,0,0,0

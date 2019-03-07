@@ -1,0 +1,10 @@
+<odoo>
+  <data><!--por cada grupo, deberiamos de hacer una entrada-->
+    <record id="academia_administrativo" model="res.groups">
+      <field name="name">Administrativo</field>
+    </record>
+    <record id="academia_profesor" model="res.groups">
+      <field name="name">Profesor</field>
+    </record>
+  </data>
+</odoo>

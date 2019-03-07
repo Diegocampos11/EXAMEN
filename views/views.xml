@@ -37,6 +37,22 @@
       </field>
     </record>
 
+    <!-- lista de búsqueda -->
+    <record model="ir.ui.view" id="academia.alumnoprofesor_search_view">
+      <field name="name">academia.alumnoprofesor.search</field>
+      <field name="model">academia.alumnoprofesor</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="dni" string="DNI"/>
+          <field name="primerApellido" string="Primer apellido"/>
+          <field name="curso" string="Curso"/>
+          <!-- se añade un filtro a la busqueda pero solo en libros -->
+          <!-- <filter name="Nota mayor a 9" domain="[ ('nota', '&gt;=',9) ]"/>
+          <filter name="Alumnos DAM" domain="[ ('cicloFormativo', '=',0) ]"/> -->
+        </search>
+      </field>
+    </record>
+
     <!-- curso -->
     <record model="ir.ui.view" id="academia.curso_tree">
       <field name="name">academia.curso.tree</field>
@@ -96,11 +112,11 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="Academia" id="academia.menu_root"/>
+    <menuitem name="Academia" id="academia.menu_root" groups="academia_profesor,academia_administrativo"/>
 
     <!-- menu categories -->
 
-    <menuitem name="Alumnos" id="academia.alumnoprofesor_menu" parent="academia.menu_root" action="academia.alumnoprofesor_action_window"/>
-    <menuitem name="Cursos" id="academia.curso_menu" parent="academia.menu_root" action="academia.curso_action_window"/>
+    <menuitem name="Alumnos" id="academia.alumnoprofesor_menu" parent="academia.menu_root" action="academia.alumnoprofesor_action_window" groups="academia_profesor,academia_administrativo"/>
+    <menuitem name="Cursos" id="academia.curso_menu" parent="academia.menu_root" action="academia.curso_action_window" groups="academia_profesor,academia_administrativo"/>
   </data>
 </odoo>
