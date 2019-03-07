@@ -1,9 +1,9 @@
 <odoo>
   <data>
     <!-- alumno -->
-    <record model="ir.ui.view" id="academia.alumnoProfesor_tree">
-      <field name="name">academia.alumnoProfesor.tree</field>
-      <field name="model">academia.alumnoProfesor</field>
+    <record model="ir.ui.view" id="academia.alumnoprofesor_tree">
+      <field name="name">academia.alumnoprofesor.tree</field>
+      <field name="model">academia.alumnoprofesor</field>
       <field name="arch" type="xml">
         <tree>
           <field name="dni"/>
@@ -14,9 +14,9 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="academia.alumnoProfesor_form">
-      <field name="name">academia.alumnoProfesor.form</field>
-      <field name="model">academia.alumnoProfesor</field>
+    <record model="ir.ui.view" id="academia.alumnoprofesor_form">
+      <field name="name">academia.alumnoprofesor.form</field>
+      <field name="model">academia.alumnoprofesor</field>
       <field name="arch" type="xml">
         <form>
           <group colspan="2" col="2">
@@ -65,16 +65,6 @@
       </field>
     </record>
 
-
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="academia.action_window">
-      <field name="name">Academia window</field>
-      <field name="res_model">academia.academia</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
-
     <!-- server action to the one above -->
     <!--
     <record model="ir.actions.server" id="academia.action_server">
@@ -90,20 +80,11 @@
     </record>
     -->
 
-    <!-- Top menu item -->
-
-    <menuitem name="Academia" id="academia.menu_root"/>
-
-    <!-- menu categories -->
-
-    <menuitem name="Alumnos" id="academia.alumnoProfesor_menu" parent="academia.menu_root" action="academia.alumnoProfesor_action_window"/>
-    <menuitem name="Cursos" id="academia.curso_menu" parent="academia.menu_root" action="academia.curso_action_window"/>
-
     <!-- actions -->
 
-    <record model="ir.actions.act_window" id="academia.alumnoProfesor_action_window">
+    <record model="ir.actions.act_window" id="academia.alumnoprofesor_action_window">
       <field name="name">Alumnos</field><!--alumnosfp.alumno.action_window-->
-      <field name="res_model">academia.alumnoProfesor</field>
+      <field name="res_model">academia.alumnoprofesor</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -112,5 +93,14 @@
       <field name="res_model">academia.curso</field>
       <field name="view_mode">tree,form</field>
     </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Academia" id="academia.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Alumnos" id="academia.alumnoprofesor_menu" parent="academia.menu_root" action="academia.alumnoprofesor_action_window"/>
+    <menuitem name="Cursos" id="academia.curso_menu" parent="academia.menu_root" action="academia.curso_action_window"/>
   </data>
 </odoo>

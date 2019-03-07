@@ -2,15 +2,15 @@
 
 from odoo import models, fields, api
 
-class curso(models.Model):
+class academia_curso(models.Model):
     _name = 'academia.curso'
     identificador = fields.Integer( string = 'Identificador', required=True )
     nivel = fields.Selection( [ ('0','A2'), ('1','B1'), ('2','B2'), ('3','C1') ] )
-    profesor = fields.Many2one( 'academia.alumnoProfesor', string='Profesor', ondelete='casacade' )
-    alumnos = fields.One2many( 'academia.alumnoProfesor', 'curso', string='Alumnos' )
+    profesor = fields.Many2one( 'academia.alumnoprofesor', string='Profesor', ondelete='cascade' )
+    alumnos = fields.One2many( 'academia.alumnoprofesor', 'curso', string='Alumnos' )
 
-class alumnoProfesor(models.Model):
-    _name = 'academia.alumnoProfesor'
+class academia_alumnoprofesor(models.Model):
+    _name = 'academia.alumnoprofesor'
     dni = fields.Char( string = 'DNI', required=True )
     nombre = fields.Char( string = 'Nombre', required=True)
     primerApellido = fields.Char( string = 'Primer apellido', required=True)
@@ -25,7 +25,7 @@ class alumnoProfesor(models.Model):
     #campo calculado
     notaMedia = fields.Float( string='Nota media', compute='_notaMedia', store=True )
 
-    @api.depends('notaSpeaking', 'notaListening', 'notaReading', 'notaWriting')
-    def _notaMedia( self ):
-        for r in self:
-            r.notaMedia = ( r.notaSpeaking + r.notaListening + r.notaReading + r.notaWriting ) / 4
+    #@api.depends('notaSpeaking', 'notaListening', 'notaReading', 'notaWriting')
+    #def _notaMedia( self ):
+    #    for r in self:
+    #        r.notaMedia = ( r.notaSpeaking + r.notaListening + r.notaReading + r.notaWriting ) / 4
